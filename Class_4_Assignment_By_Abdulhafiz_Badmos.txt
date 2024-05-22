@@ -1,0 +1,153 @@
+*** - How do you declare a variable in JavaScript using var, let, and const? Provide an example for each.
+Declaring variables in JavaScript using var, let, and const:
+Using var:
+var myVar = 10;
+Using let:
+let myLet = 'hello';
+Using const:
+const myConst = true;
+ - What is the difference between block scope and global scope in JavaScript? Provide an example to illustrate the difference using let and var.
+Difference between block scope and global scope in JavaScript using let and var:
+Global scope (using var):
+var globalVar = 5;
+{
+ var anotherVar = 10; // global scope due to var
+}
+console.log(globalVar); // 5
+console.log(anotherVar); // 10
+Block scope (using let):
+let blockLet = 5;
+{
+ let anotherBlockLet = 10; // block scope due to let
+}
+console.log(blockLet); // 5
+console.log(anotherBlockLet); // ReferenceError: anotherBlockLet is not defined
+
+ ***- List the arithmetic operators in JavaScript and write a code snippet demonstrating their usage.
+Arithmetic operators in JavaScript and their usage:
+Arithmetic operators: +, -, *, /, %, ++, --.
+Example code snippet:
+let num1 = 5;
+let num2 = 3;
+
+let sum = num1 + num2; // addition operator (+)
+let difference = num1 - num2; // subtraction operator (-)
+let product = num1 * num2; // multiplication operator (*)
+let quotient = num1 / num2; // division operator (/)
+let remainder = num1 % num2; // modulus operator (%)
+
+num1++; // increment operator (++)
+
+num2--; // decrement operator (--)
+
+console.log(sum); // 8
+console.log(difference); // 2
+console.log(product); // 15
+console.log(quotient); // 1.666666666666667 (approx.)
+console.log(remainder); // 2
+
+console.log(num1); // 6 (incremented by ++)
+console.log(num2); // -3 (decremented by --)
+
+ ***- What is the assignment operator in JavaScript and how is it used to assign values to variables?
+Assignment operator in JavaScript and its usage:
+Assignment operators are used to assign values to variables.
+Example:
+let variableA;
+variableA = 'Hello'; // assignment operator (=) assigns the value 'Hello' to variableA.
+ - Write a JavaScript statement that declares three variables, assigns values to them, and computes their sum.
+JavaScript statement declaring three variables, assigning values, and computing their sum:
+let a = 3, b = 4, c;
+
+c = a + b;
+
+console.log(c);
+
+ ***- What are the types of comments in JavaScript? Provide an example of each.
+Types of comments in JavaScript:
+Single-line comment: Begins with // and continues until the end of the line.
+Multi-line comment: Begins with /* and ends with */, allowing for comments that span multiple lines.
+Example:
+// This is a single-line comment.
+
+/* This is a 
+ multi-line 
+ comment. */
+
+ ***- Explain with an example how JavaScript is case sensitive when it comes to variable names.
+JavaScript case sensitivity:
+JavaScript is case sensitive, meaning that variable names are treated differently based on their capitalization.
+Example:
+let myVariable = 10;
+let MyVariable = 20;
+
+console.log(myVariable); // 10
+console.log(MyVariable); // 20
+
+// Trying to access MyVariable as myVariable will result in an error.
+console.log(myVariable); // ReferenceError: myVariable is not defined
+
+***- Explain the block scope and redeclaration behavior of variables declared with let. Provide examples.
+Block scope and redeclaration behavior of variables declared with let:
+Block scope: Variables declared with let are scoped to the block they are defined in, meaning they are only accessible within that block and its nested blocks.
+Redeclaration: Variables declared with let can be reassigned, but they cannot be redeclared.
+Example:
+{
+ let variableA = 10; // declaration within the block
+ console.log(variableA); // 10
+
+ {
+ let variableA = 20; // redeclaration within nested block results in an error
+ console.log(variableA); // ReferenceError: variableA is not defined
+ }
+}
+
+variableA = 30; // reassignment outside the block is allowed
+console.log(variableA); // 30
+
+*** - What are the issues associated with using var for variable declarations? Provide examples to illustrate these issues.
+Issues associated with using var for variable declarations:
+Redeclaration: Variables declared with var can be reassigned, but they can also be redeclared.
+Function scope: Variables declared with var have function scope, meaning they are accessible within the function they are defined in and its nested functions.
+Hoisting: Variables declared with var are subject to hoisting, where they are moved to the top of their scope, affecting the order of execution.
+Example:
+function exampleFunction() {
+ var originalVar;
+ {
+ var originalVar = 'hello'; // redeclaration within nested block is allowed
+ }
+
+ console.log(originalVar); // hello
+
+ originalVar = 'goodbye'; // reassignment outside the block is allowed
+}
+
+exampleFunction();
+
+*** - Compare var, let, and const in terms of scope, redeclaration, declaration before use, and hoisting. Provide examples.
+Scope:
+Var: Function scope
+Let: Block scope
+Const: Block scope
+Redeclaration:
+Var: Can be redeclared and reassigned
+Let: Can be reassigned, but not redeclared
+Const: Cannot be reassigned or redeclared
+Declaration before use:
+Var: No error, can be used before declaration
+Let and Const: Throws a ReferenceError if used before declaration
+Hoisting:
+Var: Subject to hoisting, moved to the top of its scope
+Let and Const: Not subject to hoisting, throws a ReferenceError if used before declaration
+Example:
+// var declaration and usage before var is declared
+console.log(myVar); // undefined (due to hoisting)
+var myVar = 10;
+
+// let and const declarations and usages before let/const are declared
+// console.log(letVar); // ReferenceError: letVar is not defined (due to block scope)
+// console.log(constVar); // ReferenceError: constVar is not defined (due to block scope)
+
+let letVar = 20;
+const constVar = 30;
+In summary, var has function scope, can be redeclared and reassigned, and is subject to hoisting. let has block scope, can be reassigned but not redeclared, and is not subject to hoisting. const has block scope, cannot be reassigned or redeclared, and is not subject to hoisting.
